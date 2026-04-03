@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-light">File Security Scanner</h2>
+        <a href="{{ url_for('employee_dashboard') }}" 
+           class="btn btn-outline-light">
+            ← Back
+        </a>
+    </div>
+
+    <div class="glass-card p-5">
+
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-4">
+                <input type="file" name="file"
+                       class="form-control form-control-lg"
+                       required>
+            </div>
+
+            <button class="btn btn-success px-4">
+                Scan File
+            </button>
+        </form>
+
+        {% if result %}
+        <div class="mt-4 alert alert-info">
+            {{ result }}
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

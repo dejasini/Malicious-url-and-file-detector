@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero-section">
+  <div class="row justify-content-center align-items-center">
+
+    <div class="col-md-5">
+      <div class="glass-card">
+
+        <h2 class="mb-4 text-center">Employee Access</h2>
+
+        {% if error %}
+        <div class="alert alert-danger text-center">
+          {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="post">
+
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" required>
+          </div>
+
+          <button class="btn btn-primary-exec w-100">
+            Login Securely
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

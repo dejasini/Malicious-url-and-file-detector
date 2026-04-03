@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero-section">
+  <div class="row justify-content-center align-items-center">
+
+    <!-- LEFT SIDE INFO -->
+    <div class="col-md-5 pe-5">
+      <h1 class="hero-title">
+        Secure Employee<br>Onboarding
+      </h1>
+
+      <p class="hero-subtitle">
+        Register securely to access organizational cyber defense systems.
+        All activities are monitored under enterprise-grade security protocols.
+      </p>
+    </div>
+
+    <!-- REGISTER CARD -->
+    <div class="col-md-5">
+      <div class="glass-card">
+
+        <h3 class="mb-4 text-center">
+          Employee Registration
+        </h3>
+
+        {% if error %}
+        <div class="alert alert-danger text-center">
+          {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="post">
+
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" required>
+          </div>
+
+          <button class="btn btn-primary-exec w-100">
+            Create Account
+          </button>
+
+        </form>
+
+        <p class="text-center mt-4">
+          Already registered?
+          <a href="/login" style="color:#60a5fa;">Login here</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

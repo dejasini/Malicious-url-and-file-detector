@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/static/style.css">
+<div class="card">
+  <h2>URL Detection</h2>
+
+  <form method="post">
+    <input name="url" placeholder="Enter URL" required>
+    <button type="submit">Analyze</button>
+  </form>
+
+  {% if result %}
+    {% if result == "Malicious" %}
+      <h3 class="danger">{{ result }}</h3>
+    {% else %}
+      <h3 class="safe">{{ result }}</h3>
+    {% endif %}
+  {% endif %}
+</div>

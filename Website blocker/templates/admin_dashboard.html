@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="admin-container">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-light">Admin Control Center</h2>
+
+    <a href="{{ url_for('index') }}" 
+       class="btn btn-outline-light">
+        ← Home
+    </a>
+    </div>
+
+
+    <!-- ===== Stats Cards ===== -->
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h5>Total Scans</h5>
+            <div class="stat-value blue">{{ total_scans }}</div>
+        </div>
+
+        <div class="stat-card">
+            <h5>Blocked URLs</h5>
+            <div class="stat-value red">{{ blocked }}</div>
+        </div>
+
+        <div class="stat-card">
+            <h5>Malicious Files</h5>
+            <div class="stat-value yellow">{{ malicious_files }}</div>
+        </div>
+
+        <div class="stat-card">
+            <h5>Risk Score</h5>
+            <div class="stat-value green">{{ risk_score }}%</div>
+        </div>
+
+        <div class="stat-card">
+            <h5>Safe URLs</h5>
+            <h2 style="color:#10b981;">{{ safe_urls }}</h2>
+        </div>
+
+    </div>
+
+    <!-- ===== Action Buttons ===== -->
+    <div class="action-buttons">
+
+        <a href="/admin/analytics" class="btn-analytics">
+            View AI Analytics
+        </a>
+
+        <a href="/admin/review" class="btn-review">
+            Review Blocked URLs
+        </a>
+
+    </div>
+
+</div>
+
+<style>
+
+/* ===== Admin Page Layout ===== */
+
+.admin-container {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.admin-title {
+    font-size: 2.6rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+    color: #dbeafe;
+}
+
+/* ===== Stats Grid ===== */
+
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.stat-card {
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px 50px;
+    width: 250px;
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.15);
+    transition: 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.4);
+}
+
+.stat-card h5 {
+    color: #94a3b8;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+/* ===== Color Variants ===== */
+
+.blue { color: #38bdf8; }
+.red { color: #f43f5e; }
+.yellow { color: #facc15; }
+.green { color: #10b981; }
+
+/* ===== Buttons ===== */
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.btn-analytics {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-analytics:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+}
+
+.btn-review {
+    background: transparent;
+    border: 1px solid #3b82f6;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 500;
+    color: #60a5fa;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-review:hover {
+    background: #1e40af;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+</style>
+
+{% endblock %}

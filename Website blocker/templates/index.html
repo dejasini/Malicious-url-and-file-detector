@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Google Modern Business Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ===== HERO SECTION ===== */
+
+.hero-section {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Modern Executive Title */
+.hero-title {
+    font-size: 3.8rem;
+    font-weight: 400; /* Reduced thickness */
+    letter-spacing: -1px;
+    color: #e6f0ff;
+    line-height: 1.2;
+}
+
+/* Subtext */
+.hero-subtext {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #9fb3d1;
+    margin-top: 20px;
+    line-height: 1.7;
+}
+
+/* Buttons */
+.hero-btn {
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: 0.4s ease;
+}
+
+.btn-primary-custom {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    border: none;
+    color: white;
+}
+
+.btn-primary-custom:hover {
+    background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+    transform: translateY(-3px);
+}
+
+.btn-outline-custom {
+    border: 1px solid #2e4f7d;
+    color: #9fb3d1;
+    background: transparent;
+}
+
+.btn-outline-custom:hover {
+    background: rgba(37,99,235,0.1);
+    transform: translateY(-3px);
+}
+
+/* ===== IMAGE BLENDING ===== */
+
+.hero-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Executive Blue Glow */
+.hero-image-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle,
+        rgba(37,99,235,0.35) 0%,
+        rgba(30,58,138,0.25) 40%,
+        transparent 75%);
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 1;
+}
+
+/* Image */
+.hero-image {
+    width: 480px;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    mix-blend-mode: screen; /* Blends with dark background */
+    opacity: 0.92;
+    transition: all 0.6s ease;
+}
+
+/* Smooth floating */
+@keyframes floatEffect {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.hero-image {
+    animation: floatEffect 6s ease-in-out infinite;
+}
+
+</style>
+
+<section class="hero-section container">
+    <div class="row align-items-center">
+
+        <!-- LEFT SIDE -->
+        <div class="col-lg-6">
+            <h1 class="hero-title">
+                AI-Driven Organizational<br>
+                Cyber Defense Platform
+            </h1>
+
+            <p class="hero-subtext">
+                Advanced AI-powered threat intelligence engineered for enterprise environments.
+                Real-time malicious URL detection, intelligent file risk analysis,
+                and executive-grade monitoring for modern digital infrastructure.
+            </p>
+
+            <div class="mt-4">
+                <a href="/login" class="hero-btn btn-primary-custom me-3">
+                    Employee Login
+                </a>
+
+                <a href="/register" class="hero-btn btn-outline-custom me-3">
+                    Employee Register
+                </a>
+
+                <a href="/admin/login" class="hero-btn btn-outline-custom">
+                    Administrator Login
+                </a>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE IMAGE -->
+        <div class="col-lg-6 text-center">
+            <div class="hero-image-wrapper">
+                <img src="{{ url_for('static', filename='images/ai_security.jpg') }}"
+                     class="hero-image">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
