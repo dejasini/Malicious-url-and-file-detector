@@ -1,9 +1,10 @@
+.venv/
+env/
 __pycache__/
 *.pyc
 *.pkl
 *.h5
-.env
+*.zip
+*.exe
 .vscode/
-.venv/
-env/
 data/
